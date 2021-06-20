@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     private Transform target;//用于获得palyer的transform组件
     [SerializeField]private float smoothSpeed;//相机移动速度,前缀的[SerializeField],可以使开发者在unity的组件中修改参数
+    [SerializeField]private float minx,miny,maxx,maxy;
     private void Start()
     {
 
@@ -16,5 +17,7 @@ public class CameraController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position,new Vector3(target.position.x,target.position.y,-10),smoothSpeed*Time.deltaTime);
         //第一个参数表示当前位置（即相机位置），第二个参数表示目标位置（相机要到的地方，即player）
         //第三个参数为移动速度，即移动到那里所需时间
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x,minx,maxx),Mathf.Clamp(transform.position.y,miny,maxy),transform.position.z);
+       // Mathf.Clamp()1:你希望限制的参数。2、3:限制这个范围的最大最小值
     }
 }
