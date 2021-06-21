@@ -18,7 +18,6 @@ public class AmmoCount : MonoBehaviour
         int x, y;
         Pos = Input.mousePosition;
         x = Screen.width/2;y = Screen.height/2;
-        print(Pos);
         //Pos.z = 0;
         rt.transform.localPosition = Pos - new Vector3(x,y,0);
     }
