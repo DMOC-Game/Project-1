@@ -17,9 +17,9 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);//取得屏幕到世界中的鼠标位置
         Mouse.z = 0;
-        transform.up = (Mouse - transform.position).normalized;
+        //transform.up = (Mouse - transform.position).normalized; //玩家旋转
         moveH = Input.GetAxisRaw("Horizontal")*speed;//获得水平移动轴
         moveV = Input.GetAxisRaw("Vertical")*speed;//获得垂直移动轴
     }
