@@ -7,7 +7,7 @@ public class enemyA : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private Transform target;
     [SerializeField] private float speed;
-    private float x, y;
+    private Vector2 v;
     private Rigidbody2D rb;
 
     // Update is called once per frame
@@ -17,14 +17,14 @@ public class enemyA : MonoBehaviour
     }
     void Update()
     {
-        x =   target.position.x - transform.position.x;
-        x = x / (Mathf.Abs(x))*speed;
-        y =  target.position.y - transform.position.y;
-        y = y / (Mathf.Abs(y))*speed;
+        v = target.position-transform.position;
+        transform.up = v;
+        v = v * speed;
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(x, y);
+        rb.velocity = v;
+        
     }
 }
