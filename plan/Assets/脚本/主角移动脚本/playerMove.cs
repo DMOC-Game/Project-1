@@ -19,7 +19,7 @@ public class playerMove : MonoBehaviour
         moveH = Input.GetAxisRaw("Horizontal")*speed;//获得水平移动轴
         moveV = Input.GetAxisRaw("Vertical")*speed;//获得垂直移动轴
     }
-    private void FixedUpdate()//这个是unity自带的，和上面的Updata大致一样，区别是上面是按秒执行，下面是按帧执行
+    private void FixedUpdate()//这个是unity自带的，和上面的Updata大致一样，区别是上面是按帧执行，下面是按固定秒执行
     {
         rb.velocity = new Vector2(moveH, moveV);
     }
