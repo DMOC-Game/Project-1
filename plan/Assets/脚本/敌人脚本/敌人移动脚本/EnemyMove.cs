@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyA : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Transform target;
@@ -11,13 +11,15 @@ public class enemyA : MonoBehaviour
     private Rigidbody2D rb;
 
     // Update is called once per frame
-    private void Start()
+    private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
     void Update()
     {
         v = (target.position-transform.position).normalized;
+        
         //transform.up = v; //µÐÈËÐý×ª
         v = v * speed;
     }
