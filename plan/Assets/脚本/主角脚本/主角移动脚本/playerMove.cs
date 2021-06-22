@@ -28,8 +28,11 @@ public class playerMove : MonoBehaviour
         //Mouse.z = 0;
         //transform.up = (Mouse - transform.position).normalized; //玩家旋转
         
-        moveH = Input.GetAxisRaw("Horizontal");//获得水平移动轴
-        moveV = Input.GetAxisRaw("Vertical");//获得垂直移动轴
+        if(!IsDash)
+        {
+            moveH = Input.GetAxisRaw("Horizontal");//获得水平移动轴
+            moveV = Input.GetAxisRaw("Vertical");//获得垂直移动轴
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if(Time.time>=lastDash+DashCD)

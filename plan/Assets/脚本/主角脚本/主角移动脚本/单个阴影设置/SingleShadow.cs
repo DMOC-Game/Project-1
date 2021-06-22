@@ -10,7 +10,10 @@ public class SingleShadow : MonoBehaviour
     private SpriteRenderer targetSprite;
     [Header("时间控制")]
     public float activeTime;//显示时间
-    public float activeStart;//开始显示的时间点
+
+
+
+    private float activeStart;//开始显示的时间点
 
     [Header("透明度控制")]
     
@@ -31,7 +34,7 @@ public class SingleShadow : MonoBehaviour
         transform.position = target.position;
         transform.rotation = target.rotation;
 
-        activeTime = Time.time;
+        activeStart = Time.time;
     }
     void Update()
     {
