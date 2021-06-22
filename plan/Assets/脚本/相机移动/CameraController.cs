@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform target;//用于获得palyer的transform组件
     [SerializeField]private float smoothSpeed;//相机移动速度,前缀的[SerializeField],可以使开发者在unity的组件中修改参数
     [SerializeField]private float minx,miny,maxx,maxy;
-    private void LateUpdate()//执行时间不及update，这是为了让人物移动后，再让相机移动
+    private void FixedUpdate()//执行时间不及update，这是为了让人物移动后，再让相机移动
     {
         transform.position = Vector3.Lerp(transform.position,
             new Vector3(Mathf.Clamp(target.position.x,minx,maxx), Mathf.Clamp(target.position.y,miny,maxy),-10),

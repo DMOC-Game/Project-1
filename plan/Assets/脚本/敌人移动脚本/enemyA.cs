@@ -17,7 +17,7 @@ public class enemyA : MonoBehaviour
     }
     void Update()
     {
-        v = target.position-transform.position;
+        v = (target.position-transform.position).normalized;
         //transform.up = v; //µÐÈËÐý×ª
         v = v * speed;
     }
