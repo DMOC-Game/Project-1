@@ -147,10 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af277b7bba3f144b90df02a6915cc1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OneBulleSpeed: 0
+  OneBulleSpeed: 30
   FiringPoint: {fileID: 0}
+  hurt: 5
   bd: {fileID: 0}
-  hurt: 0
 --- !u!96 &4576737384987059749
 TrailRenderer:
   serializedVersion: 2

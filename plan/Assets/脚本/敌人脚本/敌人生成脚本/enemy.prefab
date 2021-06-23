@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7454974945233464389}
   - component: {fileID: 7454974945233464386}
   - component: {fileID: 7454974945233464388}
-  - component: {fileID: 7454974945233464391}
+  - component: {fileID: 357737599600542847}
   m_Layer: 6
   m_Name: enemy
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7454974945233464385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6, y: 1.54, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -147,7 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 3
---- !u!114 &7454974945233464391
+  bd: {fileID: 0}
+--- !u!114 &357737599600542847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,5 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34fd84bb2e2e6f46bb3b7f7fe934c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  HP: 5
   ARMOR: 0
+  P: {fileID: 0}

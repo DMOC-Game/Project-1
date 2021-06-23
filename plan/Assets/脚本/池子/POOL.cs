@@ -8,16 +8,17 @@ public class POOL: MonoBehaviour
     private int BulletCount;
     private GameObject Bullet;
     private GameObject Father;
-    public POOL(GameObject father,int Count,GameObject Style)
+    private void Awake()
+    {
+        FillPOOL();
+    }
+    public void  GetGameObject(GameObject father, int Count,GameObject Style)
     {
         Pool = new Queue<GameObject>();
         BulletCount = Count;
-        Bullet = Style;
         Father = father;
-        FillPOOL();
+        Bullet = Style;
     }
-
-
 
     
     void FillPOOL()
@@ -26,7 +27,7 @@ public class POOL: MonoBehaviour
         {
             GameObject NewBullet = Instantiate(Bullet);
             NewBullet.transform.SetParent(Father.transform);
-            NewBullet.GetComponent<OneBullet>().bd = this;
+            
             ReturnPool(NewBullet);
         }
     }
