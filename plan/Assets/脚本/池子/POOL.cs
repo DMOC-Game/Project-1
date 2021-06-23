@@ -39,11 +39,12 @@ public class POOL: MonoBehaviour
     }
 
     
-    public GameObject GetPoolOne()
+    public void GetPoolOne()
     {
         if (Pool.Count == 0) FillPOOL();
         GameObject outBullet = Pool.Dequeue();
+   
         outBullet.SetActive(true);
-        return outBullet;
+        
     }
 }

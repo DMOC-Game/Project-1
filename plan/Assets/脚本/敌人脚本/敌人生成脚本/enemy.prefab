@@ -160,6 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34fd84bb2e2e6f46bb3b7f7fe934c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 5
+  HP: 10
   ARMOR: 0
   P: {fileID: 0}

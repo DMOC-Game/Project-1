@@ -17,8 +17,10 @@ public class Shotting : MonoBehaviour
     {
         P=gameObject.AddComponent<POOL>();
         var GiveBull= BulletStyle.GetComponent<OneBullet>();
+
         GiveBull.OneBulleSpeed = FlySpeed;
         GiveBull.hurt = hurt;
+        GiveBull.GUN = this.gameObject;
         GiveBull.bd = P;
         P.GetGameObject(this.gameObject, ShottingNumberPool,BulletStyle);
         

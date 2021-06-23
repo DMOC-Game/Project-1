@@ -6,7 +6,7 @@ public class OneBullet : MonoBehaviour
 {
 
     [HideInInspector] public float OneBulleSpeed;//子弹飞行速度
-    [HideInInspector] public Transform FiringPoint;//发射处坐标
+    [HideInInspector] public GameObject GUN;
     
     
     [HideInInspector] public float hurt;//子弹所造成伤害
@@ -14,11 +14,11 @@ public class OneBullet : MonoBehaviour
     private Rigidbody2D rb;
     private void OnEnable()
     {
-        
-        FiringPoint = GameObject.FindGameObjectWithTag("Player").transform;
-        this.transform.position = FiringPoint.position;
+        transform.position = GameObject.Find("player").transform.position;
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = (Camera.main.ScreenToWorldPoint(Input.mousePosition)-FiringPoint.position).normalized
+        Vector3 v = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        v.z = 0;
+        rb.velocity = (v-GUN.transform.position).normalized
             *OneBulleSpeed;
     }
     private void OnCollisionEnter2D(Collision2D collision)
