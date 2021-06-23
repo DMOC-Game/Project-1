@@ -12612,7 +12612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147065601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.53, y: -10.35, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 1932736643}
@@ -12744,7 +12744,7 @@ MonoBehaviour:
   POOLCount: 30
   LaserCount: 5
   Range: 100
-  Accuracy: 0
+  Accuracy: 0.5
   Hurt: 10
   ReturnTime: 0.1
 --- !u!1 &203559287
@@ -12771,7 +12771,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203559287}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c532f633849fc914f8405f6bc6012561, type: 3}
   m_Name: 
