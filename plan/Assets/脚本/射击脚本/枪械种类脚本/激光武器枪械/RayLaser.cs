@@ -39,6 +39,7 @@ public class RayLaser : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && LeftCoolDown <= 0)
         {
+            print(this.transform.position);
             for (int i = 0; i < LaserCount; i++)
             {
                 P.GetPoolOne();

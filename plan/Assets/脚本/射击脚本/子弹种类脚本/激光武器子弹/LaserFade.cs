@@ -15,26 +15,37 @@ public class LaserFade : MonoBehaviour
     public float Alpha=1;
     private void OnEnable()
     {
-        
+        transform.position = new Vector3(0, 0, 0);
         Line = GetComponent<LineRenderer>();
         LeftTime = returnTime;
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - GUN.transform.position;//鼠标方向
-        mousePos.z = 0 ; mousePos = mousePos.normalized;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//鼠标方向
+        //Vector3 NmousePos;
+        mousePos.z = 0 ; //mousePos = mousePos.normalized;
         LayerMask mask = 1 << 8 | 1 << 6;
+        //print(mousePos);
+        //print(mousePos.normalized+GUN.transform.position);
 
         mousePos = mousePos + new Vector3(Random.Range(-Accuracy, Accuracy), Random.Range(-Accuracy, Accuracy),0);
 
-        RaycastHit2D hit = Physics2D.Raycast(GUN.transform.position, mousePos, Range, mask);
-        Line.SetPosition(0, new Vector3(GUN.transform.position.x, GUN.transform.position.y));
+        RaycastHit2D hit = Physics2D.Raycast(GUN.transform.position, mousePos-GUN.transform.position, Range, mask);
+
+        //Line.SetPosition(0, GUN.transform.position);
+        //Line.SetPosition(1, mousePos);
+
+
+        
+        Line.SetPosition(0,GUN.transform.position);
         if (hit.collider != null)
         {
-            Line.SetPosition(1, new Vector3(hit.point.x, hit.point.y));
+            print(hit.point);
+            Line.SetPosition(1, new Vector3(hit.point.x,hit.point.y));
             hit.collider.gameObject.GetComponent<property>().Hurt(hurt);
         }
         else
         {
             Line.SetPosition(1, mousePos * Range);
         }
+        
     }
     private void Update()
     {
