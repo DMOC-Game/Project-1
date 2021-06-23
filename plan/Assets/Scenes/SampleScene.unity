@@ -12477,6 +12477,7 @@ GameObject:
   - component: {fileID: 147065608}
   - component: {fileID: 147065609}
   - component: {fileID: 147065606}
+  - component: {fileID: 147065610}
   m_Layer: 7
   m_Name: player
   m_TagString: Player
@@ -12658,6 +12659,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1276346bc1d65c34bb732c8081f8f0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &147065610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147065601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d556803231854b94388fe4cea55db521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Laser: {fileID: 4214442130119385974, guid: 5a9e3ef8a22ed494796438afaf926a0a, type: 3}
+  DestroyTime: 0.1
+  CloneCount: 1
 --- !u!1 &203559287
 GameObject:
   m_ObjectHideFlags: 0
@@ -14664,7 +14680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1362767588
 Transform:
   m_ObjectHideFlags: 0
@@ -15022,8 +15038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f935343cab1e84ab1c2f165def263e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 147065603}
-  Pos: {x: 0, y: 0, z: 0}
 --- !u!120 &2020290587
 LineRenderer:
   m_ObjectHideFlags: 0
