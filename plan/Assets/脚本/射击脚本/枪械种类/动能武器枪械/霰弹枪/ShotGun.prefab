@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3888465033912337030
+--- !u!1 &6627705159042619590
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7609908135857628368}
-  - component: {fileID: 2478149299750988449}
+  - component: {fileID: 4950007234086676657}
+  - component: {fileID: 2855311507349926812}
   m_Layer: 0
-  m_Name: LaserGun
+  m_Name: ShotGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7609908135857628368
+--- !u!4 &4950007234086676657
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3888465033912337030}
+  m_GameObject: {fileID: 6627705159042619590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.264172, y: 0.73074675, z: -3.357133}
+  m_LocalPosition: {x: -2.3335767, y: -0.64633197, z: -2.9850216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2478149299750988449
+--- !u!114 &2855311507349926812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3888465033912337030}
+  m_GameObject: {fileID: 6627705159042619590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d556803231854b94388fe4cea55db521, type: 3}
+  m_Script: {fileID: 11500000, guid: bcee8cd4c6a0ccf49b64d5900b12f7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LaserCoolDown: 0.1
-  Laser: {fileID: 4214442130119385974, guid: 5a9e3ef8a22ed494796438afaf926a0a, type: 3}
-  POOLCount: 30
-  LaserCount: 10
-  Range: 10
-  Accuracy: 0.2
-  Hurt: 10
-  ReturnTime: 0.1
+  BulletStyle: {fileID: 2350410961478129709, guid: ce9871b03e1d1674388a90cc4aa81ea5, type: 3}
+  ShottingNumberPool: 20
+  ShottingCount: 10
+  ShottingCD: 1
+  FlySpeed: 20
+  hurt: 5
+  OneShottingBullet: 10
+  BulleDieTime: 3
+  Accuracy: 1
