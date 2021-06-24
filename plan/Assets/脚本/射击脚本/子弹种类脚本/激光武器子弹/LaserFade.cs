@@ -27,7 +27,7 @@ public class LaserFade : MonoBehaviour
 
         NmousePos =  new Vector3(Random.Range(-Accuracy, Accuracy), Random.Range(-Accuracy, Accuracy),0);
 
-        RaycastHit2D hit = Physics2D.Raycast(GUN.transform.position, (mousePos - GUN.transform.position).normalized+NmousePos, Range, mask);
+        RaycastHit2D hit = Physics2D.Raycast(GUN.transform.position, (mousePos - GUN.transform.position).normalized + NmousePos, Range, mask);
 
         //Line.SetPosition(0, GUN.transform.position);
         //Line.SetPosition(1, mousePos + NmousePos);
@@ -37,15 +37,16 @@ public class LaserFade : MonoBehaviour
         Line.SetPosition(0,GUN.transform.position);
         if (hit.collider != null)
         {
-            print(hit.point);
+            //print(hit.point);
             Line.SetPosition(1, new Vector3(hit.point.x,hit.point.y));
             hit.collider.gameObject.GetComponent<property>().Hurt(hurt);
         }
         else
         {
-            Line.SetPosition(1, mousePos * Range);
+            //Line.SetPosition(1, (mousePos.normalized  - GUN.transform.position) * Range );
+            Line.SetPosition(1, (((mousePos-GUN.transform.position).normalized + NmousePos ).normalized * Range + GUN.transform.position) );
         }
-        
+
     }
     private void Update()
     {
