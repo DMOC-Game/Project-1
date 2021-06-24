@@ -9,17 +9,23 @@ public class OneBullet : MonoBehaviour
     [HideInInspector] public GameObject GUN;
     [HideInInspector] public float SetTime;
     [HideInInspector] public float LeftTime;
+    [HideInInspector] public float StartPotion;
 
     [HideInInspector] public float hurt;//子弹所造成伤害
     [HideInInspector] public POOL bd;
+    [HideInInspector] public float Accuracy;
+    [HideInInspector] public float AllAccuracy;
     private Rigidbody2D rb;
     private void OnEnable()
     {
         transform.position = GUN.transform.position;
         rb = GetComponent<Rigidbody2D>();
         Vector3 v = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        v.z = 0;
-        rb.velocity = (v-GUN.transform.position).normalized
+        v.z = 0;v = (v - transform.position).normalized;
+        //v = new Vector3(v.x-AllAccuracy+Accuracy*Shotting.Number,v.y-AllAccuracy + Accuracy * Shotting.Number, 0);
+        v = v + new Vector3(Random.Range(-Accuracy, Accuracy), Random.Range(-Accuracy, Accuracy),0);
+
+        rb.velocity = v.normalized
             *OneBulleSpeed;
         LeftTime = SetTime;
     }

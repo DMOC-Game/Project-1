@@ -7,6 +7,7 @@ public class ShottingChange : MonoBehaviour
     
     [SerializeField] private GameObject A;
     [SerializeField] private GameObject B;
+    [SerializeField] private GameObject C;
     private GameObject[] bag=new GameObject[10];
     
     private int LastGunIndex, NowIndex;
@@ -17,7 +18,8 @@ public class ShottingChange : MonoBehaviour
 
         bag[0] = Instantiate(A);  
         bag[1] = Instantiate(B);
-        for(int i=0;i<2;i++)
+        bag[2] = Instantiate(C);
+        for(int i=0;i<3;i++)
         {
             bag[i].transform.SetParent(this.transform);
             CHANGE(bag[i]);
@@ -26,7 +28,7 @@ public class ShottingChange : MonoBehaviour
         }
         CHANGE(bag[0]);
         NowIndex =0;
-        LastGunIndex = 2;
+        LastGunIndex = 3;
     }
 
     // Update is called once per frame

@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 4214442130119385975}
   - component: {fileID: 4214442130119385973}
   - component: {fileID: 8857700773424665447}
-  - component: {fileID: 7911698765894656670}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Laser
-  m_TagString: Laser
+  m_TagString: "\u5B50\u5F39"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,18 +149,3 @@ MonoBehaviour:
   hurt: 10
   returnTime: 0.1
   Alpha: 1
---- !u!114 &7911698765894656670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4214442130119385974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34fd84bb2e2e6f46bb3b7f7fe934c02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 100
-  ARMOR: 100
-  P: {fileID: 0}

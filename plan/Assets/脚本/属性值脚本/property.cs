@@ -9,12 +9,21 @@ public class property : MonoBehaviour
     [Header("½ÇÉ«ÊôÐÔ")]
     public float HP;
     public float ARMOR;
+
     [HideInInspector] public POOL P=null;
+
+    private float hp;
+    private float armor;
+    private void OnEnable()
+    {
+        hp = HP;
+        armor = ARMOR;
+    }
     public void Hurt(float ATK)
     {
-        HP -=ATK - ARMOR;
+        hp -=ATK - armor;
         print("DIE");
-        if (HP <= 0)
+        if (hp <= 0)
         {
             
             if (P!=null) P.ReturnPool(this.gameObject);
@@ -23,6 +32,11 @@ public class property : MonoBehaviour
                 
                 Destroy(this.gameObject);
             }
+            
+        }
+        if (this.gameObject.GetComponent<Unmatched>() != null)
+        {
+            this.gameObject.GetComponent<Unmatched>().enabled = true;
         }
     }
 }
