@@ -19,18 +19,18 @@ public class LaserFade : MonoBehaviour
         Line = GetComponent<LineRenderer>();
         LeftTime = returnTime;
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);// Û±Í∑ΩœÚ
-        //Vector3 NmousePos;
-        mousePos.z = 0 ; //mousePos = mousePos.normalized;
+        Vector3 NmousePos;
+        mousePos.z = 0 ; //NmousePos = mousePos.normalized;
         LayerMask mask = 1 << 8 | 1 << 6;
         //print(mousePos);
         //print(mousePos.normalized+GUN.transform.position);
 
-        mousePos = mousePos + new Vector3(Random.Range(-Accuracy, Accuracy), Random.Range(-Accuracy, Accuracy),0);
+        NmousePos =  new Vector3(Random.Range(-Accuracy, Accuracy), Random.Range(-Accuracy, Accuracy),0);
 
-        RaycastHit2D hit = Physics2D.Raycast(GUN.transform.position, mousePos-GUN.transform.position, Range, mask);
+        RaycastHit2D hit = Physics2D.Raycast(GUN.transform.position, (mousePos - GUN.transform.position).normalized+NmousePos, Range, mask);
 
         //Line.SetPosition(0, GUN.transform.position);
-        //Line.SetPosition(1, mousePos);
+        //Line.SetPosition(1, mousePos + NmousePos);
 
 
         

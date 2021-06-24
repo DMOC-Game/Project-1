@@ -43,11 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d556803231854b94388fe4cea55db521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LaserCoolDown: 0.1
+  LaserCoolDown: 0.5
   Laser: {fileID: 4214442130119385974, guid: 5a9e3ef8a22ed494796438afaf926a0a, type: 3}
   POOLCount: 30
   LaserCount: 5
   Range: 100
-  Accuracy: 0.5
+  Accuracy: 0.2
   Hurt: 10
   ReturnTime: 0.1
