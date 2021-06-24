@@ -14,7 +14,7 @@ public class OneBullet : MonoBehaviour
     private Rigidbody2D rb;
     private void OnEnable()
     {
-        transform.position = GameObject.Find("player").transform.position;
+        transform.position = GUN.transform.position;
         rb = GetComponent<Rigidbody2D>();
         Vector3 v = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         v.z = 0;

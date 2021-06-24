@@ -19,8 +19,8 @@ public class RayLaser : MonoBehaviour
     private void Start()
     {
         P = gameObject.AddComponent<POOL>();
-        
-        
+
+        transform.position = transform.parent.position;
         var Give = Laser.GetComponent<LaserFade>();
         Give.Range = Range;
         Give.Accuracy = Accuracy;
@@ -28,7 +28,7 @@ public class RayLaser : MonoBehaviour
         Give.hurt = Hurt;
         Give.P = P;
         Give.returnTime = ReturnTime;
-
+        
         P.GetGameObject(this.gameObject, POOLCount, Laser);
         
         
@@ -39,7 +39,7 @@ public class RayLaser : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && LeftCoolDown <= 0)
         {
-            print(this.transform.position);
+            
             for (int i = 0; i < LaserCount; i++)
             {
                 P.GetPoolOne();
