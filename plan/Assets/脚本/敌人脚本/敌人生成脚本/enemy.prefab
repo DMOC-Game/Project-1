@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 357737599600542847}
   m_Layer: 6
   m_Name: enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 3
   bd: {fileID: 0}
-  hurt: 0
+  hurt: 5
 --- !u!114 &357737599600542847
 MonoBehaviour:
   m_ObjectHideFlags: 0

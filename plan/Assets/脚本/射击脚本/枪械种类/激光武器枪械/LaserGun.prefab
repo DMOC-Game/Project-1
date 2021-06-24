@@ -48,6 +48,6 @@ MonoBehaviour:
   POOLCount: 30
   LaserCount: 10
   Range: 10
-  Accuracy: 0.2
+  Accuracy: 1
   Hurt: 10
   ReturnTime: 0.1

@@ -72,7 +72,6 @@
     <Compile Include="Assets\脚本\主角脚本\主角移动脚本\playerMove.cs" />
     <Compile Include="Assets\脚本\主角脚本\弹道检测\Ray.cs" />
     <Compile Include="Assets\脚本\射击脚本\枪械种类\动能武器枪械\Shotting.cs" />
-    <Compile Include="Assets\脚本\无敌帧脚本\Unmatched.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

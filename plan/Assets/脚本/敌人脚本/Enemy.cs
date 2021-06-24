@@ -37,11 +37,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag!="×Óµ¯")
-        {
-            collision.gameObject.GetComponent<property>().Hurt(hurt);
-            print("PlayerDie");
-        }
+        collision.gameObject.GetComponent<property>().Hurt(hurt);
         
     }
 
