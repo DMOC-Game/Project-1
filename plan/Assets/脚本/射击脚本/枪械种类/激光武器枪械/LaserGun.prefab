@@ -47,7 +47,7 @@ MonoBehaviour:
   Laser: {fileID: 4214442130119385974, guid: 5a9e3ef8a22ed494796438afaf926a0a, type: 3}
   POOLCount: 30
   LaserCount: 10
-  Range: 0.2
+  Range: 10
   Accuracy: 1
   Hurt: 10
   ReturnTime: 0.1

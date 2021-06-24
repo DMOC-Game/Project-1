@@ -8,6 +8,7 @@ public class ShottingChange : MonoBehaviour
     [SerializeField] private GameObject A;
     [SerializeField] private GameObject B;
     private GameObject[] bag=new GameObject[10];
+    
     private int LastGunIndex, NowIndex;
 
     // Start is called before the first frame update
@@ -19,10 +20,12 @@ public class ShottingChange : MonoBehaviour
         for(int i=0;i<2;i++)
         {
             bag[i].transform.SetParent(this.transform);
-            bag[1].SetActive(false);
+            CHANGE(bag[i]);
+
+            
         }
-        bag[0].SetActive(true);
-        NowIndex=0;
+        CHANGE(bag[0]);
+        NowIndex =0;
         LastGunIndex = 2;
     }
 
@@ -31,7 +34,7 @@ public class ShottingChange : MonoBehaviour
     {
         if(Input.GetAxis("Mouse ScrollWheel")!=0)
         {
-            bag[NowIndex].SetActive(false);
+            CHANGE(bag[NowIndex]);
             if(Input.GetAxis("Mouse ScrollWheel")<0)
             {
                 NowIndex = (NowIndex + 1) % LastGunIndex;
@@ -41,7 +44,22 @@ public class ShottingChange : MonoBehaviour
                 NowIndex--;
                 if (NowIndex < 0) NowIndex = LastGunIndex - 1;
             }
-            bag[NowIndex].SetActive(true);
+            CHANGE(bag[NowIndex]);
         }
     }
+    void CHANGE(GameObject G)
+    {
+        if(G.GetComponent <Shotting>()!= null)
+        {
+            G.GetComponent<Shotting>().enabled = !G.GetComponent<Shotting>().enabled;
+        }
+        else if(G.GetComponent<RayLaser>() != null)
+        {
+            
+            G.GetComponent<RayLaser>().enabled = !G.GetComponent<RayLaser>().enabled;
+        }
+    }
+    
 }
+
+   

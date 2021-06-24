@@ -50,3 +50,4 @@ MonoBehaviour:
   FlySpeed: 20
   hurt: 5
   OneShottingBullet: 1
+  BulleDieTime: 2

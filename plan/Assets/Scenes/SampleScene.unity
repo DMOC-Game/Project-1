@@ -12542,6 +12542,7 @@ GameObject:
   - component: {fileID: 147065604}
   - component: {fileID: 147065607}
   - component: {fileID: 147065605}
+  - component: {fileID: 147065609}
   - component: {fileID: 147065608}
   - component: {fileID: 147065606}
   m_Layer: 7
@@ -12707,6 +12708,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tr: {fileID: 0}
   Pos: {x: 0, y: 0, z: 0}
+--- !u!114 &147065609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147065601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34fd84bb2e2e6f46bb3b7f7fe934c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 10
+  ARMOR: 0
+  P: {fileID: 0}
 --- !u!1 &203559287
 GameObject:
   m_ObjectHideFlags: 0
@@ -12731,7 +12747,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203559287}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c532f633849fc914f8405f6bc6012561, type: 3}
   m_Name: 
@@ -12826,7 +12842,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 5.638822
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3503514123736075235}
   - component: {fileID: 1938657948746473925}
   - component: {fileID: 4576737384987059749}
+  - component: {fileID: -2319737007082508658}
   m_Layer: 3
   m_Name: Bullet
   m_TagString: Untagged
@@ -149,6 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OneBulleSpeed: 20
   GUN: {fileID: 0}
+  SetTime: 2
+  LeftTime: 0
   hurt: 5
   bd: {fileID: 0}
 --- !u!96 &4576737384987059749
@@ -258,3 +261,18 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &-2319737007082508658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503514123736075239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34fd84bb2e2e6f46bb3b7f7fe934c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  ARMOR: 100
+  P: {fileID: 0}

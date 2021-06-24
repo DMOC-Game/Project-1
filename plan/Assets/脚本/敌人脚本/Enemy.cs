@@ -7,7 +7,9 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     [HideInInspector] public GameObject target;
     [SerializeField] private float speed;
+
     [HideInInspector] public POOL bd;
+    public float hurt;
     private Vector2 v;
     private Rigidbody2D rb;
 
@@ -24,6 +26,7 @@ public class Enemy : MonoBehaviour
         
         //transform.up = v; //µÐÈËÐý×ª
         v = v * speed;
+        
     }
 
     void FixedUpdate()
@@ -31,4 +34,11 @@ public class Enemy : MonoBehaviour
         rb.velocity = v;
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.GetComponent<property>().Hurt(hurt);
+        
+    }
+
 }
