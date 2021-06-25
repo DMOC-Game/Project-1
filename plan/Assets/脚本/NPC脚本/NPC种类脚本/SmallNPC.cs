@@ -37,7 +37,7 @@ public class SmallNPC: MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag!="×Óµ¯")
+        if(collision.gameObject.tag!="BlueBullet")
         {
             collision.gameObject.GetComponent<property>().Hurt(hurt);
             

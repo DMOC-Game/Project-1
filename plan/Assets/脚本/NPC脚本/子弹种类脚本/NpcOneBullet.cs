@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OneBullet : MonoBehaviour
+public class NpcOneBullet : MonoBehaviour
 {
-
     [HideInInspector] public float OneBulleSpeed;//子弹飞行速度
     [HideInInspector] public GameObject GUN;
     [HideInInspector] public float SetTime;
@@ -20,13 +19,13 @@ public class OneBullet : MonoBehaviour
     {
         transform.position = GUN.transform.position;
         rb = GetComponent<Rigidbody2D>();
-        Vector3 v = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        v.z = 0;v = (v - transform.position).normalized;
-        
-        v = v + new Vector3(Random.Range(-Accuracy, Accuracy), Random.Range(-Accuracy, Accuracy),0);
+        Vector3 v = GUN.GetComponent<GunNpc>().NpcTarget;
+        v.z = 0; v = (v - transform.position).normalized;
+
+        v = v + new Vector3(Random.Range(-Accuracy, Accuracy), Random.Range(-Accuracy, Accuracy), 0);
 
         rb.velocity = v.normalized
-            *OneBulleSpeed;
+            * OneBulleSpeed;
         LeftTime = SetTime;
     }
     private void Update()
@@ -40,5 +39,7 @@ public class OneBullet : MonoBehaviour
         bd.ReturnPool(gameObject);
         collision.gameObject.GetComponent<property>().Hurt(hurt);
     }
-    
+
+
+
 }

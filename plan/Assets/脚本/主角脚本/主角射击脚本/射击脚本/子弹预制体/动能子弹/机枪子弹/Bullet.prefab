@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4576737384987059749}
   m_Layer: 3
   m_Name: Bullet
-  m_TagString: "\u5B50\u5F39"
+  m_TagString: BlueBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,10 +149,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OneBulleSpeed: 20
   GUN: {fileID: 0}
-  SetTime: 2
+  SetTime: 1
   LeftTime: 0
+  StartPotion: 0
   hurt: 5
   bd: {fileID: 0}
+  Accuracy: 0
+  AllAccuracy: 0
 --- !u!96 &4576737384987059749
 TrailRenderer:
   serializedVersion: 2

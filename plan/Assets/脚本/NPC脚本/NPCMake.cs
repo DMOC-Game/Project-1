@@ -21,6 +21,8 @@ public class NPCMake: MonoBehaviour
         Give.bd = P;
         Give.target = AttackTarget;
         Give.transform.position = this.transform.position;
+        Give.tag = this.gameObject.tag;
+        Give.gameObject.layer = gameObject.layer;
         P.GetGameObject(this.gameObject, EnemyCount,MakeTarget);
         startTime = Time.time;
     }

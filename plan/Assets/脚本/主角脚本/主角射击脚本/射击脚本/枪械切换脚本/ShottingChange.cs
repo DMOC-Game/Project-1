@@ -13,7 +13,7 @@ public class ShottingChange : MonoBehaviour
     private int LastGunIndex, NowIndex;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 
         bag[0] = Instantiate(A);  
@@ -21,10 +21,10 @@ public class ShottingChange : MonoBehaviour
         bag[2] = Instantiate(C);
         for(int i=0;i<3;i++)
         {
+
             bag[i].transform.SetParent(this.transform);
             CHANGE(bag[i]);
 
-            
         }
         CHANGE(bag[0]);
         NowIndex =0;

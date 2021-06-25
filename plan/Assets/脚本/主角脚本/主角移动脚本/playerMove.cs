@@ -67,12 +67,16 @@ public class playerMove : MonoBehaviour
         {
             if(DashLeft>0)
             {
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("RedNpc"), true);
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("RedBullet"), true);
                 rb.velocity =new Vector2(moveH * DashSpeed, moveV * DashSpeed);
                 DashLeft -= Time.deltaTime;
                 ShadowPool.instance.GetPoolOne();
             }
             else
             {
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("RedNpc"), false);
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("RedBullet"), false);
                 IsDash = false;
             }
         }

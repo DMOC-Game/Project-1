@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Shotting : MonoBehaviour
+
+public class GunNpc : MonoBehaviour
 {
     public GameObject BulletStyle;//接收图片
     public int ShottingNumberPool;//弹匣池容量
@@ -14,7 +15,8 @@ public class Shotting : MonoBehaviour
     public float ShottingRoundTime;//一轮射击时间间隔
     public float Range;//子弹多久后消失
     public float Accuracy;//子弹散射
-    private float leftCd=0;
+    [HideInInspector] public Vector3 NpcTarget;
+    private float leftCd = 0;
     public static int Number;
     private bool ShottingNow;
     private int RoundCount;
@@ -22,18 +24,19 @@ public class Shotting : MonoBehaviour
     POOL P;//创建一个弹匣
     void Start()
     {
-        P=gameObject.AddComponent<POOL>();
-        OneBullet GiveBull= BulletStyle.GetComponent<OneBullet>();
-        if(transform.parent!=null) transform.position = transform.parent.position;
+        NpcTarget = new Vector3(0, 0, 0);
+        P = gameObject.AddComponent<POOL>();
+        NpcOneBullet GiveBull = BulletStyle.GetComponent<NpcOneBullet>();
+        if (transform.parent != null) transform.position = transform.parent.position;
         GiveBull.OneBulleSpeed = FlySpeed;
         GiveBull.hurt = hurt;
         GiveBull.GUN = this.gameObject;
         GiveBull.bd = P;
-        GiveBull.SetTime = Range/FlySpeed;
+        GiveBull.SetTime = Range / FlySpeed;
         GiveBull.Accuracy = Accuracy;
-        GiveBull.AllAccuracy = Accuracy* OneShottingBullet/2;
-        
-        P.GetGameObject(this.gameObject, ShottingNumberPool,BulletStyle);
+        GiveBull.AllAccuracy = Accuracy * OneShottingBullet / 2;
+
+        P.GetGameObject(this.gameObject, ShottingNumberPool, BulletStyle);
     }
     private void OnEnable()
     {
@@ -42,7 +45,7 @@ public class Shotting : MonoBehaviour
     }
     void Update()
     {
-        if(ShottingNow)
+        if (ShottingNow)
         {
             RoundTime -= Time.deltaTime;
             if (RoundTime > 0) return;
@@ -56,20 +59,19 @@ public class Shotting : MonoBehaviour
             {
                 Number = i;
                 P.GetPoolOne();
-            }          
-            
+            }
+
             return;
         }
-        if(Input.GetMouseButton(0))
-        {    
-            if(leftCd<=0)
-            {
-                ShottingNow = true;
-                RoundCount = ShottingRoundCount;
-                RoundTime = ShottingRoundTime;
-                leftCd = ShottingCD;
-            }
+        
+        if (leftCd <= 0)
+        {
+            ShottingNow = true;
+            RoundCount = ShottingRoundCount;
+            RoundTime = ShottingRoundTime;
+            leftCd = ShottingCD;
         }
+     
         leftCd -= Time.deltaTime;
     }
 }

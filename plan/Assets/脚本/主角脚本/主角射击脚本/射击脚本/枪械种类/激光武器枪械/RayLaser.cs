@@ -21,7 +21,7 @@ public class RayLaser : MonoBehaviour
         P = gameObject.AddComponent<POOL>();
 
         if (transform.parent != null) transform.position = transform.parent.position;
-        var Give = Laser.GetComponent<LaserFade>();
+        LaserFade Give = Laser.GetComponent<LaserFade>();
         Give.Range = Range;
         Give.Accuracy = Accuracy;
         Give.GUN = gameObject;

@@ -8,16 +8,14 @@ public class POOL: MonoBehaviour
     private int BulletCount;
     private GameObject Bullet;
     private GameObject Father;
-    private void Awake()
-    {
-        FillPOOL();
-    }
+    
     public void  GetGameObject(GameObject father, int Count,GameObject Style)
     {
         Pool = new Queue<GameObject>();
         BulletCount = Count;
         Father = father;
         Bullet = Style;
+        FillPOOL();
     }
 
     

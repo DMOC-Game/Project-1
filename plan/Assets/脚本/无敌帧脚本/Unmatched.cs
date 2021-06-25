@@ -15,7 +15,7 @@ public class Unmatched : MonoBehaviour
         LeftTime = UnmatchedTime;
         S=this.gameObject.GetComponent<SpriteRenderer>();
         
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("RedNpc"), true);
         
         alpha = 1;
     }
@@ -27,7 +27,7 @@ public class Unmatched : MonoBehaviour
         {
             gameObject.GetComponent<Unmatched>().enabled = false;
             
-            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("RedNpc"), false);
             
             alpha = 1;
             S.color = new Color(1, 1, 1, 1);

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7454974945233464386}
   - component: {fileID: -6925684849656159934}
   - component: {fileID: -8086253526279674613}
-  m_Layer: 6
-  m_Name: redNPC
-  m_TagString: Enemy
+  m_Layer: 7
+  m_Name: RedNPCRun
+  m_TagString: redNPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
