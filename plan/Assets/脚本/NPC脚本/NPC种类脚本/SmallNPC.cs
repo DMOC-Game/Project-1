@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class SmallNPC: MonoBehaviour
 {
     // Start is called before the first frame update
     [HideInInspector] public GameObject target;
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.tag!="×Óµ¯")
         {
             collision.gameObject.GetComponent<property>().Hurt(hurt);
-            print("PlayerDie");
+            
         }
         
     }

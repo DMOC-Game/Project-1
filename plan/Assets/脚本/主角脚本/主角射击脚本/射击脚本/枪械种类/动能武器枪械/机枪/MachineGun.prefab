@@ -43,11 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcee8cd4c6a0ccf49b64d5900b12f7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletStyle: {fileID: 3503514123736075239, guid: d8624301c95c00d43b594298dc54b709, type: 3}
+  BulletStyle: {fileID: 3503514123736075239, guid: 929a0411183fc1441bb16ed598909165, type: 3}
   ShottingNumberPool: 20
   ShottingCount: 30
   ShottingCD: 0.2
   FlySpeed: 20
   hurt: 5
   OneShottingBullet: 1
-  BulleDieTime: 2
+  ShottingRoundCount: 1
+  ShottingRoundTime: 0
+  Range: 20
+  Accuracy: 0

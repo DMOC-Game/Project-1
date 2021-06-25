@@ -12667,7 +12667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1276346bc1d65c34bb732c8081f8f0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A: {fileID: 8627190802434814682, guid: 2c83e3bb79459cd45bb4d87ea177ab26, type: 3}
+  A: {fileID: 8627190802434814682, guid: 29126621fe35c5e4ea631f980d63dc57, type: 3}
   B: {fileID: 6627705159042619590, guid: 3b0b283d726b975478c46a57962ee031, type: 3}
   C: {fileID: 3888465033912337030, guid: deae9e56a1083af429da55020fdfc307, type: 3}
 --- !u!61 &147065607
@@ -12749,8 +12749,8 @@ GameObject:
   - component: {fileID: 203559289}
   - component: {fileID: 203559288}
   m_Layer: 0
-  m_Name: EnemyMake
-  m_TagString: Untagged
+  m_Name: NPCMake
+  m_TagString: redNPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12767,10 +12767,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c532f633849fc914f8405f6bc6012561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refreshCD: 1
+  refreshCD: 5
   MakeTarget: {fileID: 7454974945233464385, guid: 62d754ded13d9b74bbe7859ae5cbb03a, type: 3}
   AttackTarget: {fileID: 147065601}
-  EnemyCount: 20
+  EnemyCount: 7
+  MostCount: 5
 --- !u!4 &203559289
 Transform:
   m_ObjectHideFlags: 0

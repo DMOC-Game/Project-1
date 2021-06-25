@@ -26,7 +26,11 @@ public class property : MonoBehaviour
         if (hp <= 0)
         {
             
-            if (P!=null) P.ReturnPool(this.gameObject);
+            if (P!=null)
+            {
+                P.ReturnPool(this.gameObject);
+                P.GetComponent<NPCMake>().MostCount++;
+            }
             else
             {
                 
