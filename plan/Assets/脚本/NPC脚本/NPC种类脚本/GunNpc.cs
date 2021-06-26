@@ -21,6 +21,7 @@ public class GunNpc : MonoBehaviour
     private bool ShottingNow;
     private int RoundCount;
     private float RoundTime;
+    private SpriteRenderer me;
     [HideInInspector] public POOL P;
     NpcOneBullet GiveBull;
     void Start()
@@ -36,12 +37,15 @@ public class GunNpc : MonoBehaviour
         GiveBull.SetTime = Range / FlySpeed;
         GiveBull.Accuracy = Accuracy;
         GiveBull.AllAccuracy = Accuracy * OneShottingBullet / 2;
-
+        me=GetComponent<SpriteRenderer>();
         
     }
     
     void Update()
     {
+        transform.right = (target-gameObject.transform.position).normalized;
+        if (target.x > transform.parent.position.x) me.flipY = false;
+        else me.flipY = true;
         if (ShottingNow)
         {
             RoundTime -= Time.deltaTime;
@@ -55,6 +59,7 @@ public class GunNpc : MonoBehaviour
             for (int i = 0; i < OneShottingBullet; i++)
             {
                 Number = i;
+                GiveBull.transform.position = transform.position;
                 Instantiate(GiveBull);
             }
 

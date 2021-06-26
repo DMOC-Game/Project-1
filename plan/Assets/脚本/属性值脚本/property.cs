@@ -18,6 +18,7 @@ public class property : MonoBehaviour
     {
         hp = HP;
         armor = ARMOR;
+
     }
     public void Hurt(float ATK)
     {

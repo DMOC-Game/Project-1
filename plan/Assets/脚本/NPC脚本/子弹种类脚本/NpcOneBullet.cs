@@ -18,7 +18,7 @@ public class NpcOneBullet : MonoBehaviour
     private void OnEnable()
     {
         
-        transform.position = GUN.transform.position;
+        
         rb = GetComponent<Rigidbody2D>();
         Vector3 v = GUN.GetComponent<GunNpc>().target;
         v.z = 0; v = (v - transform.position).normalized;

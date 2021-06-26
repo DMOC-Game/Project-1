@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694278041048871472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -16.393063, y: -13.4849615, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,13 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4446ff5342da05642b38923d27625fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OneBulleSpeed: 10
+  OneBulleSpeed: 5
   GUN: {fileID: 0}
-  SetTime: 0
+  SetTime: 6
   LeftTime: 0
   StartPotion: 0
   hurt: 2
-  bd: {fileID: 0}
   Accuracy: 0
   AllAccuracy: 0
 --- !u!212 &-2120976595950328297
@@ -95,7 +94,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3c19fddeabeb2a14497975513c7dc08e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bb2a89135bfb134fbde72616eca9ed3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
