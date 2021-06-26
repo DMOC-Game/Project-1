@@ -11,15 +11,16 @@ public class NpcOneBullet : MonoBehaviour
     [HideInInspector] public float StartPotion;
 
     [HideInInspector] public float hurt;//子弹所造成伤害
-    [HideInInspector] public POOL bd;
+    
     [HideInInspector] public float Accuracy;
     [HideInInspector] public float AllAccuracy;
     private Rigidbody2D rb;
     private void OnEnable()
     {
+        
         transform.position = GUN.transform.position;
         rb = GetComponent<Rigidbody2D>();
-        Vector3 v = GUN.GetComponent<GunNpc>().NpcTarget;
+        Vector3 v = GUN.GetComponent<GunNpc>().target;
         v.z = 0; v = (v - transform.position).normalized;
 
         v = v + new Vector3(Random.Range(-Accuracy, Accuracy), Random.Range(-Accuracy, Accuracy), 0);
@@ -30,13 +31,14 @@ public class NpcOneBullet : MonoBehaviour
     }
     private void Update()
     {
-        if (LeftTime <= 0) bd.ReturnPool(this.gameObject);
+
+        if (LeftTime <= 0) Destroy(this.gameObject);
         LeftTime -= Time.deltaTime;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        bd.ReturnPool(gameObject);
+        Destroy(this.gameObject);
         collision.gameObject.GetComponent<property>().Hurt(hurt);
     }
 

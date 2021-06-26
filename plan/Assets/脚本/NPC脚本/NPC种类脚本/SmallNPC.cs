@@ -5,10 +5,10 @@ using UnityEngine;
 public class SmallNPC: MonoBehaviour
 {
     // Start is called before the first frame update
-    [HideInInspector] public GameObject target;
+    
     [SerializeField] private float speed;
 
-    [HideInInspector] public POOL bd;
+    
     public float hurt;
     private Vector2 v;
     private Rigidbody2D rb;
@@ -18,11 +18,11 @@ public class SmallNPC: MonoBehaviour
     {
         
         rb = GetComponent<Rigidbody2D>();
-        this.GetComponent<property>().P = bd;
+        
     }
     void Update()
     {
-        v = (target.transform.position-transform.position).normalized;
+        v = (GameObject.Find("player").transform.position-transform.position).normalized;
         
         //transform.up = v; //µÐÈËÐý×ª
         v = v * speed;

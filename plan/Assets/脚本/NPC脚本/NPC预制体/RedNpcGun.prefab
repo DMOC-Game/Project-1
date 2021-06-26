@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletStyle: {fileID: 1694278041048871472, guid: 9017478feea0f704a8e33d3a3f31c0bc, type: 3}
-  ShottingNumberPool: 3
+  ShottingNumberPool: 4
   ShottingCount: 1
   ShottingCD: 1
   FlySpeed: 5
@@ -54,7 +54,8 @@ MonoBehaviour:
   ShottingRoundTime: 0
   Range: 30
   Accuracy: 0
-  NpcTarget: {x: 0, y: 0, z: 0}
+  target: {x: 0, y: 0, z: 0}
+  P: {fileID: 0}
 --- !u!1 &1923843151237841693
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,34 +15,31 @@ public class GunNpc : MonoBehaviour
     public float ShottingRoundTime;//一轮射击时间间隔
     public float Range;//子弹多久后消失
     public float Accuracy;//子弹散射
-    [HideInInspector] public Vector3 NpcTarget;
+    [HideInInspector] public Vector3 target;
     private float leftCd = 0;
     public static int Number;
     private bool ShottingNow;
     private int RoundCount;
     private float RoundTime;
-    POOL P;//创建一个弹匣
+    [HideInInspector] public POOL P;
+    NpcOneBullet GiveBull;
     void Start()
     {
-        NpcTarget = new Vector3(0, 0, 0);
-        P = gameObject.AddComponent<POOL>();
-        NpcOneBullet GiveBull = BulletStyle.GetComponent<NpcOneBullet>();
-        if (transform.parent != null) transform.position = transform.parent.position;
+
+
+        GiveBull = BulletStyle.GetComponent<NpcOneBullet>();
+        transform.position = transform.parent.position;
         GiveBull.OneBulleSpeed = FlySpeed;
         GiveBull.hurt = hurt;
         GiveBull.GUN = this.gameObject;
-        GiveBull.bd = P;
+        
         GiveBull.SetTime = Range / FlySpeed;
         GiveBull.Accuracy = Accuracy;
         GiveBull.AllAccuracy = Accuracy * OneShottingBullet / 2;
 
-        P.GetGameObject(this.gameObject, ShottingNumberPool, BulletStyle);
+        
     }
-    private void OnEnable()
-    {
-        ShottingNow = false;
-        RoundTime = ShottingRoundTime;
-    }
+    
     void Update()
     {
         if (ShottingNow)
@@ -58,7 +55,7 @@ public class GunNpc : MonoBehaviour
             for (int i = 0; i < OneShottingBullet; i++)
             {
                 Number = i;
-                P.GetPoolOne();
+                Instantiate(GiveBull);
             }
 
             return;

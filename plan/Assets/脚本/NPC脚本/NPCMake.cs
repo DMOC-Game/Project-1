@@ -8,7 +8,6 @@ public class NPCMake: MonoBehaviour
     public float refreshCD;
     
     [SerializeField] private GameObject MakeTarget;
-    [SerializeField] private GameObject AttackTarget;
     [SerializeField] private int EnemyCount;
     public int MostCount;
     private float startTime;
@@ -17,13 +16,10 @@ public class NPCMake: MonoBehaviour
     {
 
         P = gameObject.AddComponent<POOL>();
-        var Give=MakeTarget.GetComponent<SmallNPC>();
-        Give.bd = P;
-        Give.target = AttackTarget;
-        Give.transform.position = this.transform.position;
-        Give.tag = this.gameObject.tag;
-        Give.gameObject.layer = gameObject.layer;
-        P.GetGameObject(this.gameObject, EnemyCount,MakeTarget);
+        MakeTarget.layer = gameObject.layer;
+        MakeTarget.tag = gameObject.tag;
+        MakeTarget.GetComponent<property>().P = P;
+        P.GetGameObject(this.gameObject, EnemyCount, MakeTarget);
         startTime = Time.time;
     }
 
