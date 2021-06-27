@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-
 public class NpcGunAi : MonoBehaviour
 {
-    Collider2D t;
+    [HideInInspector]public Collider2D t;
     AIDestinationSetter target;
     public float MoveRange;
     public float ShotRange;
@@ -20,13 +19,10 @@ public class NpcGunAi : MonoBehaviour
         else Mask = 1 << 10;
         G = gameObject.GetComponentInChildren<GunNpc>();
         //rb = gameObject.GetComponent<Rigidbody2D>();
-        
+        target = GetComponent<AIDestinationSetter>();
         G.enabled = false;
     }
-    private void Awake()
-    {
-        target = GetComponent<AIDestinationSetter>();
-    }
+    
     private void OnEnable()
     {
         gameObject.transform.localPosition = new Vector2(0, 0);
@@ -35,25 +31,26 @@ public class NpcGunAi : MonoBehaviour
     }
     private void Update()
     {
-        if (Time.time < LeftTime + 0.1)
-        {
-            return;
-        }
-        LeftTime = Time.time;
+        
         if (!(t = Physics2D.OverlapCircle(transform.position, MoveRange, Mask)))
         {
             return;
         }
-        print(t);
+        
         target.target = t.transform;
-
+        
+        if (t.transform.position.x < transform.position.x) G.GetComponent<SpriteRenderer>().flipY = true;
+        else G.GetComponent<SpriteRenderer>().flipY = false;
         if (!Physics2D.Raycast(transform.position, (target.target.position - gameObject.transform.position).normalized, ShotRange, Mask))
         {
-            G.transform.right = (target.target.position - gameObject.transform.position).normalized;
+            
+            
+            
             G.enabled = false;
-            //rb.velocity = (target - gameObject.transform.position).normalized * MoveSpeed;
+            
             return;
         }
+        G.transform.right = Vector3.Lerp(G.transform.right, (target.target.position - gameObject.transform.position).normalized, 0.1f);
         G.target = target.target.position;
         G.enabled = true;
     }

@@ -15,8 +15,8 @@ public class GunNpc : MonoBehaviour
     public float ShottingRoundTime;//一轮射击时间间隔
     public float Range;//子弹多久后消失
     public float Accuracy;//子弹散射
+    [HideInInspector]public Vector3 target;
     
-    [HideInInspector] public Vector3 target;
     private float leftCd = 0;
     public static int Number;
     private bool ShottingNow;
