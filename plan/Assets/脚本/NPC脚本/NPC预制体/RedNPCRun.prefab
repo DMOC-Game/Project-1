@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 7454974945233464386}
   - component: {fileID: -6925684849656159934}
   - component: {fileID: -8086253526279674613}
-  - component: {fileID: 7635167096879470807}
   m_Layer: 7
   m_Name: RedNPCRun
   m_TagString: redNPC
@@ -194,15 +193,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   hurt: 0
---- !u!114 &7635167096879470807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7454974945233464385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f2526d9e7d969246b2aa2a8b44eadcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

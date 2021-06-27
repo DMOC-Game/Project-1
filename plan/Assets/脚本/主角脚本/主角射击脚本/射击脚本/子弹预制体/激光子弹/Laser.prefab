@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4214442130119385975}
   - component: {fileID: 4214442130119385973}
   - component: {fileID: 8857700773424665447}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Laser
   m_TagString: BlueBullet
   m_Icon: {fileID: 0}

@@ -16,8 +16,7 @@ public class NPCMake: MonoBehaviour
     {
 
         P = gameObject.AddComponent<POOL>();
-        MakeTarget.layer = gameObject.layer;
-        MakeTarget.tag = gameObject.tag;
+        
         
         MakeTarget.GetComponent<property>().P = P;
         P.GetGameObject(this.gameObject, EnemyCount, MakeTarget);

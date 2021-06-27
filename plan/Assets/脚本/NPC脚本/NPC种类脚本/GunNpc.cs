@@ -15,6 +15,7 @@ public class GunNpc : MonoBehaviour
     public float ShottingRoundTime;//一轮射击时间间隔
     public float Range;//子弹多久后消失
     public float Accuracy;//子弹散射
+    
     [HideInInspector] public Vector3 target;
     private float leftCd = 0;
     public static int Number;
@@ -22,8 +23,10 @@ public class GunNpc : MonoBehaviour
     private int RoundCount;
     private float RoundTime;
     private SpriteRenderer me;
+    
     [HideInInspector] public POOL P;
     NpcOneBullet GiveBull;
+    
     void Start()
     {
 
@@ -43,9 +46,9 @@ public class GunNpc : MonoBehaviour
     
     void Update()
     {
-        transform.right = (target-gameObject.transform.position).normalized;
-        if (target.x > transform.parent.position.x) me.flipY = false;
-        else me.flipY = true;
+
+
+        
         if (ShottingNow)
         {
             RoundTime -= Time.deltaTime;
@@ -76,4 +79,5 @@ public class GunNpc : MonoBehaviour
      
         leftCd -= Time.deltaTime;
     }
+    
 }
