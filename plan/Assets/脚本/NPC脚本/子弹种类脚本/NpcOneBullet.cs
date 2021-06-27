@@ -39,6 +39,7 @@ public class NpcOneBullet : MonoBehaviour
     {
 
         Destroy(this.gameObject);
+        
         collision.gameObject.GetComponent<property>().Hurt(hurt);
     }
 

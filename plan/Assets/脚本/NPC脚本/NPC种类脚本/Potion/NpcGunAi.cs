@@ -32,7 +32,7 @@ public class NpcGunAi : MonoBehaviour
             return;
         }
         target = t.transform.position;
-        G.transform.right = (target - gameObject.transform.position).normalized;       
+        G.transform.right =Vector3.Lerp(G.transform.right,(target - gameObject.transform.position).normalized,5*Time.deltaTime);       
         if (!Physics2D.Raycast(transform.position, G.transform.right, ShotRange, Mask))
         {
             

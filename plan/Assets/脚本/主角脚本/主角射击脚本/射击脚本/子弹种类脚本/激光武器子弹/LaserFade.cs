@@ -21,7 +21,7 @@ public class LaserFade : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);// Û±Í∑ΩœÚ
         Vector3 NmousePos;
         mousePos.z = 0 ; //NmousePos = mousePos.normalized;
-        LayerMask mask = 1 << 7 ;
+        LayerMask mask = 1 << 10 ;
         //print(mousePos);
         //print(mousePos.normalized+GUN.transform.position);
 

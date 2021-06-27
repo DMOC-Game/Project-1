@@ -20,13 +20,13 @@ public class property : MonoBehaviour
         armor = ARMOR;
 
     }
+    
     public void Hurt(float ATK)
     {
         hp -=ATK - armor;
-        print("DIE");
+        
         if (hp <= 0)
-        {
-            
+        {           
             if (P!=null)
             {
                 P.ReturnPool(this.gameObject);
