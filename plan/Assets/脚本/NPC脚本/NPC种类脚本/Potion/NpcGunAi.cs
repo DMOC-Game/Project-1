@@ -1,46 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class NpcGunAi : MonoBehaviour
 {
     Collider2D t;
-    Vector3 target;
+    AIDestinationSetter target;
     public float MoveRange;
     public float ShotRange;
-    public float MoveSpeed;
+    //public float MoveSpeed;
     LayerMask Mask;
     GunNpc G;
     private Rigidbody2D rb;
+    private float LeftTime;
     private void Start()
     {
-        if (gameObject.layer == 10) Mask = 1 << 6 | 1 << 9;
+        if (gameObject.layer == 10) Mask = 1 << 9 | 1 << 6;
         else Mask = 1 << 10;
         G = gameObject.GetComponentInChildren<GunNpc>();
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        //rb = gameObject.GetComponent<Rigidbody2D>();
+        
         G.enabled = false;
+    }
+    private void Awake()
+    {
+        target = GetComponent<AIDestinationSetter>();
     }
     private void OnEnable()
     {
         gameObject.transform.localPosition = new Vector2(0, 0);
-        
+        LeftTime = -10;
+
     }
     private void Update()
     {
-        if (!(t = Physics2D.OverlapCircle(transform.position, MoveRange, Mask)))
-        {           
-            return;
-        }
-        target = t.transform.position;
-        G.transform.right =Vector3.Lerp(G.transform.right,(target - gameObject.transform.position).normalized,5*Time.deltaTime);       
-        if (!Physics2D.Raycast(transform.position, G.transform.right, ShotRange, Mask))
+        if (Time.time < LeftTime + 0.1)
         {
-            
-            G.enabled = false;
-            rb.velocity = (target - gameObject.transform.position).normalized * MoveSpeed;
             return;
         }
-        G.target = target;
-        G.enabled = true;                    
+        LeftTime = Time.time;
+        if (!(t = Physics2D.OverlapCircle(transform.position, MoveRange, Mask)))
+        {
+            return;
+        }
+        print(t);
+        target.target = t.transform;
+
+        if (!Physics2D.Raycast(transform.position, (target.target.position - gameObject.transform.position).normalized, ShotRange, Mask))
+        {
+            G.transform.right = (target.target.position - gameObject.transform.position).normalized;
+            G.enabled = false;
+            //rb.velocity = (target - gameObject.transform.position).normalized * MoveSpeed;
+            return;
+        }
+        G.target = target.target.position;
+        G.enabled = true;
     }
 }
