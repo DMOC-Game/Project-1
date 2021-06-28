@@ -25,7 +25,7 @@ public class NpcGunAi : MonoBehaviour
     
     private void OnEnable()
     {
-        gameObject.transform.localPosition = new Vector2(0, 0);
+        gameObject.transform.localPosition = new Vector2(Random.Range(-3,3), Random.Range(-3,3));
         LeftTime = -10;
 
     }

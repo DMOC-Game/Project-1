@@ -70,6 +70,7 @@ MonoBehaviour:
   HP: 5
   ARMOR: 0
   P: {fileID: 0}
+  hp: 0
 --- !u!212 &6409463065474058891
 SpriteRenderer:
   m_ObjectHideFlags: 0
