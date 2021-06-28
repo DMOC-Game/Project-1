@@ -60,7 +60,7 @@ public class Shotting : MonoBehaviour
             
             return;
         }
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {    
             if(leftCd<=0)
             {

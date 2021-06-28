@@ -31,12 +31,14 @@ public class NpcGunAi : MonoBehaviour
     }
     private void Update()
     {
-        
-        if (!(t = Physics2D.OverlapCircle(transform.position, MoveRange, Mask)))
+        if (Time.time > LeftTime + 0.2)
         {
-            return;
+            LeftTime = Time.time;
+            if (!(t = Physics2D.OverlapCircle(transform.position, MoveRange, Mask)))
+            {
+                return;
+            }
         }
-        
         target.target = t.transform;
         
         if (t.transform.position.x < transform.position.x) G.GetComponent<SpriteRenderer>().flipY = true;

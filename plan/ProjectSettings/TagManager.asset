@@ -45,7 +45,7 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: "\u80CC\u666F"
+  - name: "\u5730\u677F"
     uniqueID: 770844751
     locked: 0
   - name: Default
@@ -53,4 +53,10 @@ TagManager:
     locked: 0
   - name: "\u4EBA\u7269"
     uniqueID: 1057243299
+    locked: 0
+  - name: "\u906E\u6321\u5899"
+    uniqueID: 596172255
+    locked: 0
+  - name: "\u5899"
+    uniqueID: 4270348979
     locked: 0
