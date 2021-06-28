@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6409463065474058889}
   - component: {fileID: -4533023913238039147}
   - component: {fileID: -5982059663980806996}
+  - component: {fileID: 5821272482197415064}
   - component: {fileID: -2680265920933683089}
   m_Layer: 9
   m_Name: BlueNpcGun
@@ -52,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: {fileID: 0}
-  MoveRange: 30
+  MoveRange: 100
   ShotRange: 10
 --- !u!114 &6409463065474058890
 MonoBehaviour:
@@ -231,6 +232,19 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+--- !u!114 &5821272482197415064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409463065474058886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8837a7b5e7fba754d8610a473df85e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerTime: 0.3
 --- !u!114 &-2680265920933683089
 MonoBehaviour:
   m_ObjectHideFlags: 0

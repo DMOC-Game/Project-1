@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ShottingChange : MonoBehaviour
 {
     
     [SerializeField] private GameObject A;
     [SerializeField] private GameObject B;
     [SerializeField] private GameObject C;
+    [HideInInspector]public float time;
+    [HideInInspector] public float LeftTime;
     private GameObject[] bag=new GameObject[10];
     
     private int LastGunIndex, NowIndex;
@@ -15,7 +17,7 @@ public class ShottingChange : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
+        
         bag[0] = Instantiate(A);  
         bag[1] = Instantiate(B);
         bag[2] = Instantiate(C);
@@ -34,6 +36,7 @@ public class ShottingChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(Input.GetAxis("Mouse ScrollWheel")!=0)
         {
             CHANGE(bag[NowIndex]);
@@ -47,6 +50,7 @@ public class ShottingChange : MonoBehaviour
                 if (NowIndex < 0) NowIndex = LastGunIndex - 1;
             }
             CHANGE(bag[NowIndex]);
+            
         }
     }
     void CHANGE(GameObject G)

@@ -42,6 +42,14 @@ public class property : MonoBehaviour
         if (this.gameObject.GetComponent<Unmatched>() != null)
         {
             this.gameObject.GetComponent<Unmatched>().enabled = true;
+            
+        }
+        else
+        {
+            if(ATK-armor>0)
+            {
+                gameObject.GetComponent<flicker>().enabled = true;
+            }
         }
     }
 }

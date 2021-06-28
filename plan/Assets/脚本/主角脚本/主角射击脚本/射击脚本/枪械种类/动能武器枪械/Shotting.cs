@@ -19,10 +19,13 @@ public class Shotting : MonoBehaviour
     private bool ShottingNow;
     private int RoundCount;
     private float RoundTime;
+    private ShottingChange S;
     POOL P;//创建一个弹匣
     void Start()
     {
         P=gameObject.AddComponent<POOL>();
+        S=gameObject.GetComponentInParent<ShottingChange>();
+        
         OneBullet GiveBull= BulletStyle.GetComponent<OneBullet>();
         if(transform.parent!=null) transform.position = transform.parent.position;
         GiveBull.OneBulleSpeed = FlySpeed;
@@ -38,6 +41,7 @@ public class Shotting : MonoBehaviour
     private void OnEnable()
     {
         ShottingNow = false;
+       
         RoundTime = ShottingRoundTime;
     }
     void Update()
@@ -62,7 +66,7 @@ public class Shotting : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(0))
         {    
-            if(leftCd<=0)
+            if(leftCd<0)
             {
                 ShottingNow = true;
                 RoundCount = ShottingRoundCount;
@@ -71,5 +75,7 @@ public class Shotting : MonoBehaviour
             }
         }
         leftCd -= Time.deltaTime;
+        S.time = ShottingCD;
+        S.LeftTime = leftCd;
     }
 }
