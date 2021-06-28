@@ -13,13 +13,14 @@ public class RayLaser : MonoBehaviour
     [SerializeField] private float Accuracy;
     [SerializeField] private int Hurt;
     [SerializeField] private float ReturnTime;
+    private ShottingChange S;
     private float  LeftCoolDown;
     POOL P;
 
     private void Start()
     {
         P = gameObject.AddComponent<POOL>();
-
+        S = gameObject.GetComponentInParent<ShottingChange>();
         if (transform.parent != null) transform.position = transform.parent.position;
         LaserFade Give = Laser.GetComponent<LaserFade>();
         Give.Range = Range;
@@ -47,6 +48,8 @@ public class RayLaser : MonoBehaviour
             }
         }
         LeftCoolDown -= Time.deltaTime;
+        S.time = LaserCoolDown;
+        S.LeftTime = LeftCoolDown;
     }
     
     

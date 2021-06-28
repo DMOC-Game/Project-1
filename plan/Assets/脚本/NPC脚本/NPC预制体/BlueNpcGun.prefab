@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: {fileID: 0}
-  MoveRange: 100
+  MoveRange: 150
   ShotRange: 10
 --- !u!114 &6409463065474058890
 MonoBehaviour:

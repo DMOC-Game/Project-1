@@ -12,7 +12,7 @@ public class property : MonoBehaviour
 
     [HideInInspector] public POOL P=null;
 
-    private float hp;
+    [HideInInspector] public float hp;
     private float armor;
     private void OnEnable()
     {

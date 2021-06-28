@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class playerMove : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -15,10 +15,12 @@ public class playerMove : MonoBehaviour
     private float DashLeft;//冲刺剩余时间
     [SerializeField] private float DashCD;//冷却时间
     private bool IsDash;//判断是否可以冲刺
+    private Slider S;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();//获得当前脚本所在的2D刚体组件
+        S = GameObject.Find("MP").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -35,16 +37,19 @@ public class playerMove : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(Time.time>=lastDash+DashCD)
+            if(lastDash<0)
             {
                 ReadyToDash();
             }
         }
+        lastDash -= Time.deltaTime;
+        S.value = lastDash / DashCD;
     }
     void FixedUpdate()//这个是unity自带的，和上面的Updata大致一样，区别是上面是按帧执行，下面是按固定秒执行
     {
         Dash();
         if (IsDash) return;
+        
         PlayerMove();
     }
 
@@ -57,7 +62,8 @@ public class playerMove : MonoBehaviour
     {
         IsDash = true;
         DashLeft = DashTime;
-        lastDash=Time.time; 
+        lastDash=DashCD;
+        
     }
 
 
