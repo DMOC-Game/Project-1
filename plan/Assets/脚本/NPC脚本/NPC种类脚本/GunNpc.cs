@@ -6,7 +6,7 @@ public class GunNpc : MonoBehaviour
 {
     public GameObject BulletStyle;//接收图片
     public int ShottingNumberPool;//弹匣池容量
-    public int ShottingCount;//一次射击多少发装弹(还未启用)
+    //一次射击多少发装弹(还未启用)
     public float ShottingCD;//射击间隔
     public float FlySpeed;//射击速度
     public float hurt;//每发子弹造成伤害

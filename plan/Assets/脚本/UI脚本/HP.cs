@@ -5,18 +5,18 @@ using UnityEngine.UI;
 public class HP : MonoBehaviour
 {
     private property P;
-    private Slider S;
+    private Image S;
     private float MaxHp;
     private void Start()
     {
         P = GameObject.Find("player").GetComponent<property>();
-        S = gameObject.GetComponent<Slider>();
+        S = gameObject.GetComponent<Image>();
         MaxHp = P.HP;
     }
     // Update is called once per frame
     void Update()
     {
-        S.value = P.hp / MaxHp;
+        S.fillAmount = P.hp / MaxHp;
 
     }
 }

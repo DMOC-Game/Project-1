@@ -55,7 +55,7 @@ public class NpcGunAi : MonoBehaviour
             }
         }
         target.target = t.transform;
-        
+       
         if (t.transform.position.x < transform.position.x) G.GetComponent<SpriteRenderer>().flipY = true;
         else G.GetComponent<SpriteRenderer>().flipY = false;
 

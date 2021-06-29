@@ -8,7 +8,7 @@ public class rebirth : MonoBehaviour
    
     private void OnEnable()
     {
-        this.gameObject.transform.position = new Vector3(22,1,0);
+        this.gameObject.transform.position = new Vector3(22+ Random.Range(-3, 3), 1+ Random.Range(-3, 3), 0);
         P=GetComponent<property>();
         P.hp = P.HP;
         GetComponent<rebirth>().enabled = false;
