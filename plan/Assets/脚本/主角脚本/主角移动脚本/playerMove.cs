@@ -15,12 +15,12 @@ public class playerMove : MonoBehaviour
     private float DashLeft;//冲刺剩余时间
     [SerializeField] private float DashCD;//冷却时间
     private bool IsDash;//判断是否可以冲刺
-    private Slider S;
+    private Image S;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();//获得当前脚本所在的2D刚体组件
-        S = GameObject.Find("MP").GetComponent<Slider>();
+        S = GameObject.Find("Mp-I").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class playerMove : MonoBehaviour
             }
         }
         lastDash -= Time.deltaTime;
-        S.value = lastDash / DashCD;
+        S.fillAmount = Mathf.Clamp(1-lastDash / DashCD,0,1);
     }
     void FixedUpdate()//这个是unity自带的，和上面的Updata大致一样，区别是上面是按帧执行，下面是按固定秒执行
     {

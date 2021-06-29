@@ -20,11 +20,13 @@ public class AmmoCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //移动到鼠标位置
         int x, y;
         Pos = Input.mousePosition;
         x = Screen.width/2;y = Screen.height/2;
         //Pos.z = 0;
         rt.transform.localPosition = Pos - new Vector3(x,y,0);
-        I.fillAmount = (S.time-S.LeftTime)/S.time;
+        //进度条
+        I.fillAmount =Mathf.Clamp((S.time-S.LeftTime)/S.time * 0.25f ,0,0.25f);
     }
 }
