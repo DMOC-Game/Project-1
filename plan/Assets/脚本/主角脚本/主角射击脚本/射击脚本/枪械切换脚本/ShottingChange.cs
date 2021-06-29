@@ -23,12 +23,13 @@ public class ShottingChange : MonoBehaviour
         bag[2] = Instantiate(C);
         for(int i=0;i<3;i++)
         {
-
+            //bag[i].GetComponent<SpriteRenderer>().enabled = false;
             bag[i].transform.SetParent(this.transform);
             CHANGE(bag[i]);
 
         }
         CHANGE(bag[0]);
+        bag[0].GetComponent<SpriteRenderer>().enabled =true;
         NowIndex =0;
         LastGunIndex = 3;
     }
@@ -50,20 +51,23 @@ public class ShottingChange : MonoBehaviour
                 if (NowIndex < 0) NowIndex = LastGunIndex - 1;
             }
             CHANGE(bag[NowIndex]);
-            
+            return;
         }
+
     }
     void CHANGE(GameObject G)
     {
         if(G.GetComponent <Shotting>()!= null)
         {
             G.GetComponent<Shotting>().enabled = !G.GetComponent<Shotting>().enabled;
+            
         }
         else if(G.GetComponent<RayLaser>() != null)
         {
             
             G.GetComponent<RayLaser>().enabled = !G.GetComponent<RayLaser>().enabled;
         }
+        G.GetComponent<SpriteRenderer>().enabled = !G.GetComponent<SpriteRenderer>().enabled;
     }
     
 }

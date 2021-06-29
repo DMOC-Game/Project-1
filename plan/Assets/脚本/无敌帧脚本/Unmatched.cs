@@ -14,7 +14,11 @@ public class Unmatched : MonoBehaviour
     {
         LeftTime = UnmatchedTime;
         S=this.gameObject.GetComponent<SpriteRenderer>();
-        
+        for(int i=0;i<3;i++)
+        {
+            gameObject.GetComponentsInChildren<GunFlicker>()[i].flickerTime = UnmatchedTime;
+            gameObject.GetComponentsInChildren<GunFlicker>()[i].enabled = true;
+        }
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("RedNpc"), true);
         
         alpha = 1;

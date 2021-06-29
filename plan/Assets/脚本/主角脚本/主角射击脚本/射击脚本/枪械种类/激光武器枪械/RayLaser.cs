@@ -15,22 +15,22 @@ public class RayLaser : MonoBehaviour
     [SerializeField] private float ReturnTime;
     private ShottingChange S;
     private float  LeftCoolDown;
-    POOL P;
+    LaserFade Give;
 
     private void Start()
     {
-        P = gameObject.AddComponent<POOL>();
+        
         S = gameObject.GetComponentInParent<ShottingChange>();
         if (transform.parent != null) transform.position = transform.parent.position;
-        LaserFade Give = Laser.GetComponent<LaserFade>();
+        Give = Laser.GetComponent<LaserFade>();
         Give.Range = Range;
         Give.Accuracy = Accuracy;
         Give.GUN = gameObject;
         Give.hurt = Hurt;
-        Give.P = P;
+        
         Give.returnTime = ReturnTime;
         
-        P.GetGameObject(this.gameObject, POOLCount, Laser);
+       
         
         
         
@@ -38,12 +38,17 @@ public class RayLaser : MonoBehaviour
     }
     void Update()
     {
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouse.z = 0;
+        transform.right = (mouse - transform.position).normalized;
+        if (transform.position.x < mouse.x) transform.localScale = new Vector3(1, 1, 1);
+        else transform.localScale = new Vector3(1, -1, 1);
         if (Input.GetMouseButton(0) && LeftCoolDown <= 0)
         {
             
             for (int i = 0; i < LaserCount; i++)
             {
-                P.GetPoolOne();
+                Instantiate(Give);
                 LeftCoolDown = LaserCoolDown;
             }
         }

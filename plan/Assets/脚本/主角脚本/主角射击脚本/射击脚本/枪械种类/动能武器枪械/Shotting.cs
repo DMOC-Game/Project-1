@@ -4,8 +4,8 @@ using UnityEngine;
 public class Shotting : MonoBehaviour
 {
     public GameObject BulletStyle;//接收图片
-    public int ShottingNumberPool;//弹匣池容量
-    public int ShottingCount;//一次射击多少发装弹(还未启用)
+    
+   
     public float ShottingCD;//射击间隔
     public float FlySpeed;//射击速度
     public float hurt;//每发子弹造成伤害
@@ -20,33 +20,39 @@ public class Shotting : MonoBehaviour
     private int RoundCount;
     private float RoundTime;
     private ShottingChange S;
-    POOL P;//创建一个弹匣
+    private OneBullet GiveBull;
     void Start()
     {
-        P=gameObject.AddComponent<POOL>();
+       
         S=gameObject.GetComponentInParent<ShottingChange>();
-        
-        OneBullet GiveBull= BulletStyle.GetComponent<OneBullet>();
+        transform.position = transform.parent.position;
+        print(transform.parent.position);
+        GiveBull= BulletStyle.GetComponent<OneBullet>();
         if(transform.parent!=null) transform.position = transform.parent.position;
         GiveBull.OneBulleSpeed = FlySpeed;
         GiveBull.hurt = hurt;
         GiveBull.GUN = this.gameObject;
-        GiveBull.bd = P;
+        
         GiveBull.SetTime = Range/FlySpeed;
         GiveBull.Accuracy = Accuracy;
         GiveBull.AllAccuracy = Accuracy* OneShottingBullet/2;
         
-        P.GetGameObject(this.gameObject, ShottingNumberPool,BulletStyle);
+        
     }
     private void OnEnable()
     {
         ShottingNow = false;
-       
+        
         RoundTime = ShottingRoundTime;
     }
     void Update()
     {
-        if(ShottingNow)
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouse.z = 0;
+        transform.right = (mouse-transform.position).normalized;
+        if (transform.position.x < mouse.x) transform.localScale=new Vector3(1,1,1);
+        else transform.localScale = new Vector3(1, -1, 1);
+        if (ShottingNow)
         {
             RoundTime -= Time.deltaTime;
             if (RoundTime > 0) return;
@@ -59,7 +65,7 @@ public class Shotting : MonoBehaviour
             for (int i = 0; i < OneShottingBullet; i++)
             {
                 Number = i;
-                P.GetPoolOne();
+                Instantiate(GiveBull);
             }          
             
             return;

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class flicker : MonoBehaviour
+public class GunFlicker : MonoBehaviour
 {
-    public float flickerTime;
+    [HideInInspector]public float flickerTime;
     private float LeftTime;
     private float alpha;
     private float alphaMutiplier = 0.9f;
@@ -13,9 +13,7 @@ public class flicker : MonoBehaviour
     private void OnEnable()
     {
         LeftTime = flickerTime;
-        gameObject.GetComponentInChildren<GunFlicker>().flickerTime = flickerTime;
-        gameObject.GetComponentInChildren<GunFlicker>().enabled = true;
-        S = this.gameObject.GetComponent<SpriteRenderer>();       
+        S = this.gameObject.GetComponent<SpriteRenderer>();
         alpha = 1;
     }
 
@@ -24,7 +22,7 @@ public class flicker : MonoBehaviour
     {
         if (LeftTime <= 0)
         {
-            gameObject.GetComponent<flicker>().enabled = false;            
+            gameObject.GetComponent<GunFlicker>().enabled = false;
             alpha = 1;
             S.color = new Color(1, 1, 1, 1);
         }

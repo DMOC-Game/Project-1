@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1923843150732805483}
   - component: {fileID: 1923843150732805480}
+  - component: {fileID: 6042136224536692780}
   - component: {fileID: 7201286766816722795}
   m_Layer: 8
   m_Name: NpcShotting
@@ -57,6 +58,18 @@ MonoBehaviour:
   Accuracy: 0
   target: {x: 0, y: 0, z: 0}
   P: {fileID: 0}
+--- !u!114 &6042136224536692780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923843150732805482}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873e2472294e564468c8b0aa775f8138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &7201286766816722795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -177,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 5
   ARMOR: 0
+  DeadBody: {fileID: 1333878720231028896, guid: 4498e1c09df9817478d4389410d09715, type: 3}
   P: {fileID: 0}
   hp: 0
 --- !u!212 &1923843151237841664
@@ -348,7 +362,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923843151237841693}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8837a7b5e7fba754d8610a473df85e1d, type: 3}
   m_Name: 

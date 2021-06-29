@@ -9,14 +9,26 @@ public class NpcGunAi : MonoBehaviour
     public float MoveRange;
     public float ShotRange;
     //public float MoveSpeed;
-    LayerMask Mask;
+    LayerMask Mask1;
+    LayerMask Mask2;
+    Collider C;
     GunNpc G;
     private Rigidbody2D rb;
     private float LeftTime;
     private void Start()
     {
-        if (gameObject.layer == 10) Mask = 1 << 9 | 1 << 6;
-        else Mask = 1 << 10;
+        if (gameObject.layer == 10)
+        {
+            Mask1 = 1 << 9 | 1 << 6;
+            
+
+        }
+        else
+        { 
+            Mask1 = 1 << 10;
+            
+        }
+        Mask2 = 1 << 17;
         G = gameObject.GetComponentInChildren<GunNpc>();
         //rb = gameObject.GetComponent<Rigidbody2D>();
         target = GetComponent<AIDestinationSetter>();
@@ -31,10 +43,10 @@ public class NpcGunAi : MonoBehaviour
     }
     private void Update()
     {
-        if (Time.time > LeftTime + 0.2)
+        if (Time.time > LeftTime + 0.1)
         {
             LeftTime = Time.time;
-            if (!(t = Physics2D.OverlapCircle(transform.position, MoveRange, Mask)))
+            if (!(t = Physics2D.OverlapCircle(transform.position, MoveRange, Mask1)))
             {
                 return;
             }
@@ -43,13 +55,10 @@ public class NpcGunAi : MonoBehaviour
         
         if (t.transform.position.x < transform.position.x) G.GetComponent<SpriteRenderer>().flipY = true;
         else G.GetComponent<SpriteRenderer>().flipY = false;
-        if (!Physics2D.Raycast(transform.position, (target.target.position - gameObject.transform.position).normalized, ShotRange, Mask))
-        {
-            
-            
-            
-            G.enabled = false;
-            
+        if (!Physics2D.Raycast(transform.position, (target.target.position - gameObject.transform.position).normalized, ShotRange, Mask1) ||
+            Physics2D.Raycast(transform.position, (target.target.position - gameObject.transform.position).normalized, ShotRange, Mask2))
+        {                                 
+            G.enabled = false;           
             return;
         }
         G.transform.right = Vector3.Lerp(G.transform.right, (target.target.position - gameObject.transform.position).normalized, 0.1f);

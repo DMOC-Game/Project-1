@@ -9,7 +9,8 @@ public class property : MonoBehaviour
     [Header("½ÇÉ«ÊôÐÔ")]
     public float HP;
     public float ARMOR;
-
+    
+    public GameObject DeadBody;
     [HideInInspector] public POOL P=null;
 
     [HideInInspector] public float hp;
@@ -26,7 +27,9 @@ public class property : MonoBehaviour
         hp -=ATK - armor;
         
         if (hp <= 0)
-        {           
+        {
+            DeadBody.transform.position = this.gameObject.transform.position;
+            Instantiate(DeadBody);
             if (P!=null)
             {
                 P.ReturnPool(this.gameObject);
@@ -34,8 +37,8 @@ public class property : MonoBehaviour
             }
             else
             {
+                GetComponent<rebirth>().enabled = true;
                 
-                Destroy(this.gameObject);
             }
             
         }

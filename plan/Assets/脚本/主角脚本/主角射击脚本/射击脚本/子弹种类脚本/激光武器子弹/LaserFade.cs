@@ -6,18 +6,18 @@ public class LaserFade : MonoBehaviour
 {
     [HideInInspector] public float Range;
     [HideInInspector] public float Accuracy;
-    [HideInInspector] public POOL P;
+    
     [HideInInspector] public GameObject GUN;
     [HideInInspector] public int hurt;
     [HideInInspector] public float returnTime;
-    private float LeftTime;
+    
     private LineRenderer Line;
     public float Alpha=1;
     private void OnEnable()
     {
         transform.position = new Vector3(0, 0, 0);
         Line = GetComponent<LineRenderer>();
-        LeftTime = returnTime;
+        
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);// Û±Í∑ΩœÚ
         Vector3 NmousePos;
         mousePos.z = 0 ; //NmousePos = mousePos.normalized;
@@ -50,8 +50,7 @@ public class LaserFade : MonoBehaviour
     }
     private void Update()
     {
-        if (LeftTime <= 0) P.ReturnPool(this.gameObject);
-        LeftTime -= Time.deltaTime;
+        Destroy(gameObject, returnTime);
     }
     /*private void OnEnable()
     {
