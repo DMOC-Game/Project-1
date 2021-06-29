@@ -46,15 +46,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletStyle: {fileID: 1694278041048871472, guid: 9017478feea0f704a8e33d3a3f31c0bc, type: 3}
-  ShottingNumberPool: 4
+  ShottingNumberPool: 5
   ShottingCount: 1
   ShottingCD: 1
   FlySpeed: 5
-  hurt: 2
+  hurt: 1
   OneShottingBullet: 1
   ShottingRoundCount: 1
   ShottingRoundTime: 0
-  Range: 30
+  Range: 15
   Accuracy: 0
   target: {x: 0, y: 0, z: 0}
   P: {fileID: 0}
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873e2472294e564468c8b0aa775f8138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flickerTime: 0
 --- !u!212 &7201286766816722795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -350,7 +351,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 10
   pickNextWaypointDist: 0.5
-  endReachedDistance: 10
+  endReachedDistance: 0
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
